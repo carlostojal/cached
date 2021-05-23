@@ -4,6 +4,13 @@
 
 using namespace std;
 
+/*
+  Server.h
+
+  This class manages the network requests.
+
+*/
+
 class Server {
 
   public:

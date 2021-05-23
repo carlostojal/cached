@@ -4,6 +4,13 @@
 
 using namespace std;
 
+/*
+  StorageObject.h
+
+  This class is the basic storage unit.
+
+*/
+
 class StorageObject {
 
   public:
@@ -13,4 +20,5 @@ class StorageObject {
     string value;
     int created_at;
     int updated_at;
+    int max_age;
 };

@@ -6,37 +6,34 @@ Cache::Cache() {
 
 }
 
-string Cache::get(string key) {
+StorageObject Cache::get(string key) {
+
+  StorageObject obj;
 
   // search for the key in the storage vector and return the value
   for(unsigned int i = 0; i < storage.size(); i++) {
 
     if(storage.at(i).key == key)
-      return storage.at(i).value;
+      obj = storage.at(i);
   }
 
-  return nullptr;
+  return obj;
 }
 
-void Cache::set(string key, string value) {
+void Cache::set(StorageObject object) {
 
   bool found = false;
 
   // search for the key in the storage vector
   for(unsigned int i = 0; i < storage.size(); i++) {
 
-    if(storage.at(i).key == key) {
+    if(storage.at(i).key == object.key) {
       found = true;
-      storage.at(i).value = value;
+      storage.at(i) = object;
     }
   }
 
   // if not found, create a new object
-  if(!found) {
-    StorageObject object;
-    object.key = key;
-    object.value = value;
-
+  if(!found)
     storage.push_back(object);
-  }
 }

@@ -19,8 +19,8 @@ class Cache {
 
   public:
     Cache();
-    string get(string key);
-    void set(string key, string value);
+    StorageObject get(string key);
+    void set(StorageObject object);
 
   private:
     vector<StorageObject> storage;

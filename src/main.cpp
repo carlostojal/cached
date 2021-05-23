@@ -1,24 +1,22 @@
 #include <iostream>
 #include "../include/Server.h"
-#include "../include/Cache.h"
-#include "../include/Storage.h"
+#include "../include/StorageWrapper.h"
+#include "../include/StorageObject.h"
 
 using namespace std;
 
-// this object controls and stores cache
-Cache cache;
-Storage storage;
+// this object controls all storage (cache and persistent)
+StorageWrapper storage;
 
 int main() {
 
+    // initialize server instance
     Server server;
-
     server.start();
 
-    cache.set("hello", "Hello World");
-    storage.set("hello", "Hello World");
-    cout << cache.get("hello") << endl;
-    cout << storage.get("hello") << endl;
+    // some storage tests
+    storage.set(StorageObject("null", "Hello World"));
+    cout << storage.get("hello").value << endl;
 
     return 0;
 }

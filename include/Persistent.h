@@ -8,7 +8,7 @@
 using namespace std;
 
 /*
-  Storage.h
+  Persistent.h
 
   This class stores the storage objects
   and is responsible for getting and setting
@@ -16,12 +16,12 @@ using namespace std;
 
 */
 
-class Storage {
+class Persistent {
 
   public:
-    Storage();
-    string get(string key);
-    void set(string key, string value);
+    Persistent();
+    StorageObject get(string key);
+    void set(StorageObject object);
 
   private:
     vector<StorageObject> storage;
