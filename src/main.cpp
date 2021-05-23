@@ -4,13 +4,22 @@
 
 using namespace std;
 
-int main()
-{
-    Cache cache;
+// this object controls and stores cache
+Cache cache;
+
+int main() {
+
     Server server;
 
     server.start();
 
-    cout << "Hello world!" << endl;
+    cache.set("hello", "Hello World");
+    cout << cache.get("hello") << endl;
+
     return 0;
+}
+
+// implementation of the server request event
+void Server::on_request(string command) {
+
 }

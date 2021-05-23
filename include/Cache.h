@@ -20,7 +20,7 @@ class Cache {
   public:
     Cache();
     string get(string key);
-    int set(string key, string value);
+    void set(string key, string value);
 
   private:
     vector<StorageObject> storage;

@@ -11,4 +11,6 @@ class StorageObject {
     StorageObject(string key, string value);
     string key;
     string value;
+    int created_at;
+    int updated_at;
 };
