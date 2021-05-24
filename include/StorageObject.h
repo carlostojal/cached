@@ -16,9 +16,9 @@ class StorageObject {
   public:
     StorageObject();
     StorageObject(string key, string value);
+    StorageObject(string key, string value, int max_age);
     string key;
     string value;
-    int created_at;
-    int updated_at;
+    time_t cached_at;
     int max_age;
 };

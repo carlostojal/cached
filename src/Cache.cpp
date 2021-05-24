@@ -13,8 +13,10 @@ StorageObject Cache::get(string key) {
   // search for the key in the storage vector and return the value
   for(unsigned int i = 0; i < storage.size(); i++) {
 
-    if(storage.at(i).key == key)
-      obj = storage.at(i);
+    StorageObject tmp = storage.at(i);
+
+    if(tmp.key == key && ((int) tmp.cached_at + tmp.max_age) <= (int) time(nullptr) && tmp.max_age >= 0)
+      obj = tmp;
   }
 
   return obj;

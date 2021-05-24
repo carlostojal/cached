@@ -1,4 +1,5 @@
 #include <iostream>
+#include <unistd.h>
 #include "../include/Server.h"
 #include "../include/StorageWrapper.h"
 #include "../include/StorageObject.h"
@@ -23,7 +24,7 @@ int main() {
 
     try {
         cout << storage.get("hello").value << endl;
-        cout << storage.get("hello").value << endl;
+        cout << storage.get("hello").cached_at << endl;
     } catch(invalid_argument &e) {
         cout << e.what() << endl;
     }
