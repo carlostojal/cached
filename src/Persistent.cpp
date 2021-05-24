@@ -20,6 +20,7 @@ StorageObject Persistent::get(string key) {
   if(!f.good())
     return obj;
 
+  obj.key = key;
   while(f >> temp)
     obj.value += temp + " ";
   f.close();

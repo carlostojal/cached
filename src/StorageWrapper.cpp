@@ -18,15 +18,19 @@ StorageObject StorageWrapper::get(string key) {
 
   obj = persistent.get(key);
 
+  if(obj.key == "null")
+    throw invalid_argument("KEY_NOT_FOUND");
+
+  // update the cache
+  cache.set(obj);
+
   return obj;
 }
 
 void StorageWrapper::set(StorageObject object) {
 
-  if(object.key == "null") {
-    cout << "ERROR: \"null\" is a reserved key name." << endl;
-    return;
-  }
+  if(object.key == "null")
+    throw invalid_argument("KEY_NAME_NOT_ALLOWED");
 
   persistent.set(object);
   cache.set(object);

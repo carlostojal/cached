@@ -15,8 +15,18 @@ int main() {
     server.start();
 
     // some storage tests
-    storage.set(StorageObject("null", "Hello World"));
-    cout << storage.get("hello").value << endl;
+    try {
+        storage.set(StorageObject("null", "Hello World"));
+    } catch(invalid_argument &e) {
+        cout << e.what() << endl;
+    }
+
+    try {
+        cout << storage.get("hello").value << endl;
+        cout << storage.get("hello").value << endl;
+    } catch(invalid_argument &e) {
+        cout << e.what() << endl;
+    }
 
     return 0;
 }
