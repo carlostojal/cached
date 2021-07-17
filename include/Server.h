@@ -1,6 +1,10 @@
 #pragma once
 
 #include <iostream>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <unistd.h>
+#include <string.h>
 
 using namespace std;
 
@@ -15,10 +19,11 @@ class Server {
 
   public:
     Server();
-    void start();
-    void on_request(string command);
+    void start(int port);
+    string on_request(string command);
 
   private:
     int sockfd;
+    struct sockaddr_in address;
 
 };
